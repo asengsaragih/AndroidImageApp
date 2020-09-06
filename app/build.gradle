@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.suncode.imageapp"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    implementation 'com.google.android.material:material:1.2.0'
+
+    //version
+    def RETROFIT_VER = '2.9.0'
+    def GLIDE_VER = '4.11.0'
+    def GSON_VER = '2.8.6'
+    def OKHTTP_VER = '4.8.1'
+
+    //glide
+    implementation "com.github.bumptech.glide:glide:$GLIDE_VER"
+    annotationProcessor "com.github.bumptech.glide:compiler:$GLIDE_VER"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$RETROFIT_VER"
+    implementation "com.squareup.retrofit2:converter-gson:$RETROFIT_VER"
+
+    //gson
+    implementation "com.google.code.gson:gson:$GSON_VER"
+
+    //okhttp
+    implementation "com.squareup.okhttp3:okhttp:$OKHTTP_VER"
+    implementation "com.squareup.okhttp3:logging-interceptor:$OKHTTP_VER"
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+}
